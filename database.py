@@ -11,12 +11,13 @@ class Database:
         """
             Chargez les variables d'environnement de votre fichier .env, puis complétez les lignes 15 à 19 afin de récupérer les valeurs de ces variables
         """
+        load_dotenv()
 
-        self.host =
-        self.port =
-        self.database =
-        self.user =
-        self.password =
+        self.host = os.environ.get('DB_HOST')
+        self.port = int(os.environ.get('DB_PORT'))
+        self.database = os.environ.get('DB_DATABASE')
+        self.user = os.environ.get('DB_USER')
+        self.password = os.environ.get('DB_PASSWORD')
 
         self._open_sql_connection()
 
